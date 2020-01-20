@@ -35,7 +35,7 @@
     -unless @post.solved?
       = form_for [@post, @comment], html: {class: 'form'} do |f|
         = f.text_area :text, placeholder: "コメント本文", rows: "10"
-        = f.submit "コメントする", class: :form__btn, data: { confirm: 'コメントしますか？' }
+        = f.submit "コメントする", class: :form__btn
 
     .comments
       - if @comments.present?

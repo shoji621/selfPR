@@ -11,4 +11,4 @@
           = comment.created_at.strftime("%Y/%m/%d(%a) %H:%M")
   .content__lower
     %p.content__lower__text
-      = link_to comment.text, post_path(@post.id), class: "content__lower__text"
+      = comment.text
