@@ -30,18 +30,9 @@
   .content__lower
     %p.content__lower__text
       = link_to post.text.truncate(200), post_path(post.id), class: "content__lower__text"
-  
-    - if post.favorited_by?(current_user)
-      -# ログインしているユーザーがファボしたかどうかで分岐
-      %p.content__lower__favorite
-        = link_to post_favorites_path(post.id), method: :delete, class: "favorite", remote: false do
-          = icon('fas', 'heart')
-          = post.favorites.count
-    - else
-      %p.content__lower__favorite
-        = link_to post_favorites_path(post.id), method: :post, class: "favorite", remote: false do
-          = icon('far', 'heart')
-          = post.favorites.count
+
+    %p.content__lower__favorite{id: "favorite-#{post.id}"}
+      = render partial: "shared/favorite", locals: { post: post }
 
     -# - if current_user != post.user
     -#   - if post.user.followed_by?(current_user)

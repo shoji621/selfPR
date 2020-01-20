@@ -122,8 +122,10 @@
   }
   .postAuthor{
     font-size: 15px;
-    color: #999;
     text-align: center;
+    &--color {
+      color: #999;
+    }
   }
   .postManage{
     display: flex;

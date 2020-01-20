@@ -19,7 +19,7 @@
     .content__upper__right__status-date
       = @post.created_at.strftime("%Y/%m/%d(%a) %H:%M")
   .postAuthor
-    = @post.user.name
+    = link_to @post.user.name, user_path(@post.user.id), class: "postAuthor--color"
   .postManage
     - if user_signed_in? && current_user.id == @post.user_id && !@post.solved?
       = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
@@ -28,18 +28,9 @@
   %p.postText
     = @post.text
 
-    - if @post.favorited_by?(current_user)
-      -# ログインしているユーザーがファボしたかどうかで分岐
-      %p.postFavorite
-        = link_to post_favorites_path(@post.id), method: :delete, class: "favorite", remote: true do
-          = icon('fas', 'heart')
-          = @post.favorites.count
-    - else
-      %p.postFavorite
-        = link_to post_favorites_path(@post.id), method: :post, class: "favorite", remote: true do
-          = icon('far', 'heart')
-          = @post.favorites.count
-
+  .postFavorite
+    %p.content__lower__favorite
+      = render partial: "shared/favorite", locals: { post: @post }
   .container
     -unless @post.solved?
       = form_for [@post, @comment], html: {class: 'form'} do |f|
