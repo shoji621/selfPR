@@ -35,10 +35,6 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
-  def search
-    @posts = Post.search(params[:keyword])
-  end
-
   private
   def post_params
     params.require(:post).permit(:industry,:hopejob ,:nowjob, :text, :solved).merge(user_id: current_user.id)

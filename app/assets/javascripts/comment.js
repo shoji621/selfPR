@@ -1,8 +1,10 @@
 $(function(){
 
   function buildHTML(comment) {
+    let current_user_id = $('.current_user_id').val();
+    let delete_btn = (current_user_id == comment.user_id && !comment.solved)  ? `<a data-confirm="削除してよろしいですか？" class="postManage__delete postManage__delete__comment" data-remote="true" rel="nofollow" data-method="delete" href="/posts/${comment.post_id}/comments/${comment.id}">削除</a>` : " " ;
     let html =
-  `<div class="content">
+  `<div class="content" id="comment-${comment.id}">
     <div class="content__upper">
       <div class="content__upper-icon">
         <i class="fas fa-user-alt icon"></i>
@@ -15,6 +17,7 @@ $(function(){
           <div class="content__upper__right__status-solved"></div>
           <div class="content__upper__right__status-date">
             ${comment.date}
+            ${delete_btn}
           </div>
         </div>
       </div>
