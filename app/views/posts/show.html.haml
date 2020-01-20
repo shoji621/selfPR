@@ -29,7 +29,7 @@
     = @post.text
 
   .postFavorite
-    %p.content__lower__favorite
+    %p.content__lower__favorite{id: "favorite-#{@post.id}"}
       = render partial: "shared/favorite", locals: { post: @post }
   .container
     -unless @post.solved?

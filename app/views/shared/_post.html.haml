@@ -33,9 +33,3 @@
 
     %p.content__lower__favorite{id: "favorite-#{post.id}"}
       = render partial: "shared/favorite", locals: { post: post }
-
-    -# - if current_user != post.user
-    -#   - if post.user.followed_by?(current_user)
-    -#     %p= link_to "フォロー済み", user_relationships_path(post.user.id), method: :delete
-    -#   - else
-    -#     %p= link_to "フォローする", user_relationships_path(post.user.id), method: :post

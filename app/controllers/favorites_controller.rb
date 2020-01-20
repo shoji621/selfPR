@@ -20,7 +20,7 @@ class FavoritesController < ApplicationController
   private
   def set_post
     @post = Post.find(params[:post_id])
-    @id_name = "favorite-#{@post.id}"
+    @id_name = "#favorite-#{@post.id}"
   end
 
 end
