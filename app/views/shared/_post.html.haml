@@ -1,0 +1,50 @@
+.content
+  .content__upper
+    .content__upper-icon
+      = icon('fas', 'user-alt', class: 'icon')
+    .content__upper__right
+      .content__upper__right-name
+        = link_to post.user.name, user_path(post.user), class: "content__upper__right-name"
+      .content__upper__right__element
+        .content__upper__right__element-industry
+          - if post.industry?
+            希望業界:
+            = post.industry
+        .content__upper__right__element-hopejob
+          - if post.hopejob?
+            希望職種:
+            = post.hopejob
+        .content__upper__right__element-nowjob
+          - if post.nowjob?
+            現職:
+            = post.nowjob
+      .content__upper__right__status
+        - if post.solved?
+          .content__upper__right__status-solved
+            解決済
+        - else
+          .content__upper__right__status-unsolved
+            受付中
+        .content__upper__right__status-date
+          = post.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+  .content__lower
+    %p.content__lower__text
+      = link_to post.text.truncate(200), post_path(post.id), class: "content__lower__text"
+  
+    - if post.favorited_by?(current_user)
+      -# ログインしているユーザーがファボしたかどうかで分岐
+      %p.content__lower__favorite
+        = link_to post_favorites_path(post.id), method: :delete, class: "favorite", remote: false do
+          = icon('fas', 'heart')
+          = post.favorites.count
+    - else
+      %p.content__lower__favorite
+        = link_to post_favorites_path(post.id), method: :post, class: "favorite", remote: false do
+          = icon('far', 'heart')
+          = post.favorites.count
+
+    -# - if current_user != post.user
+    -#   - if post.user.followed_by?(current_user)
+    -#     %p= link_to "フォロー済み", user_relationships_path(post.user.id), method: :delete
+    -#   - else
+    -#     %p= link_to "フォローする", user_relationships_path(post.user.id), method: :post

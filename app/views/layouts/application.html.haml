@@ -1,0 +1,48 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+    %title SelfPR
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"}
+      
+    -# %link{:charset => "utf-8", :href => "application.scss", :rel => "stylesheet"}/
+    -# %script{:src => "/assets/javascripts/tab.js"}
+
+
+    -# :javascript
+    -#   WebFontConfig = {
+    -#     google: { families: [ 'Unica+One::latin' ] }
+    -#   };
+    -#   (function() {
+    -#     var wf = document.createElement('script');
+    -#     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+    -#       '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    -#     wf.type = 'text/javascript';
+    -#     wf.async = 'true';
+    -#     var s = document.getElementsByTagName('script')[0];
+    -#     s.parentNode.insertBefore(wf, s);
+    -#   })();
+
+    
+  %body
+    %header.header
+      .header__title
+        = link_to "Self PR", root_path, class: "header__title--text"
+        - if user_signed_in?
+          = form_for(@post, url: posts_searches_path, method: :get, class: "search-form") do |f|
+            = f.text_field :keyword, placeholder: "自己PRを検索する", class: "search-form__input"
+            = icon('fas', 'search', class: 'search-icon')
+            -# = f.submit "検索", class: "search-form__btn"
+        
+      .header__right
+        - if user_signed_in?
+          = link_to current_user.name, user_path(current_user), class: "header__right--btn"
+          = link_to "新規投稿", new_post_path, class: "header__right--btn"
+          = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header__right--btn"
+        - else
+          = link_to "ログイン", new_user_session_path, class: "header__right--btn"
+          = link_to "新規登録", new_user_registration_path, class: "header__right--btn"
+    = yield

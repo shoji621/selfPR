@@ -1,0 +1,10 @@
+.contents
+  .content__title
+    自己PRの編集
+
+  = form_for @post, html: {class: 'form'} do |f|
+    = f.text_field :industry, placeholder: :希望業界, class: :form__element
+    = f.text_field :hopejob, placeholder: :希望職種, class: :form__element
+    = f.text_field :nowjob, placeholder: :現職, class: :form__element
+    = f.text_area :text, placeholder: :自己PR本文, class: :form__text
+    = f.submit '投稿する', class: :form__btn, data: { confirm: '編集完了しますか？' }

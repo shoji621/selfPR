@@ -1,0 +1,68 @@
+.contents
+  .postElement
+    - if @post.industry?
+      希望業界:
+      = @post.industry
+    - if @post.hopejob?
+      　希望職種:
+      = @post.hopejob
+    - if @post.nowjob?
+      　現職:
+      = @post.nowjob
+  .content__upper__right__status
+    - if @post.solved?
+      .content__upper__right__status-solved
+        解決済
+    - else
+      .content__upper__right__status-unsolved
+        受付中
+    .content__upper__right__status-date
+      = @post.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+  .postAuthor
+    = @post.user.name
+  .postManage
+    - if user_signed_in? && current_user.id == @post.user_id && !@post.solved?
+      = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
+    - if user_signed_in? && current_user.id == @post.user_id && @comments.empty? && !@post.solved?
+      = link_to "削除", post_path(@post.id), method: :delete, data: { confirm: '削除しますか？' }, class: "postManage__delete"
+  %p.postText
+    = @post.text
+
+    - if @post.favorited_by?(current_user)
+      -# ログインしているユーザーがファボしたかどうかで分岐
+      %p.postFavorite
+        = link_to post_favorites_path(@post.id), method: :delete, class: "favorite", remote: true do
+          = icon('fas', 'heart')
+          = @post.favorites.count
+    - else
+      %p.postFavorite
+        = link_to post_favorites_path(@post.id), method: :post, class: "favorite", remote: true do
+          = icon('far', 'heart')
+          = @post.favorites.count
+
+  .container
+    -unless @post.solved?
+      = form_for [@post, @comment], html: {class: 'form'} do |f|
+        = f.text_area :text, placeholder: "コメント本文", rows: "10"
+        = f.submit "コメントする", class: :form__btn, data: { confirm: 'コメントしますか？' }
+
+    .comments
+      - if @comments.present?
+        %h4 【コメント一覧】
+        - @comments.each do |comment|
+          = render partial: "shared/comment", locals: { comment: comment }
+      - else
+        %h4 コメントはまだありません
+
+    - if @post.solved?
+      .content__upper__right__status-solved
+        解決済
+        %br
+        .content__upper__right__status-date
+          = @post.updated_at.strftime("%Y/%m/%d(%a) %H:%M")
+    - else
+      .content__upper__right__status-unsolved
+        受付中
+        %br
+        - if current_user.id == @post.user_id
+          = link_to "解決済にする", posts_solved_path(@post), controller: :PostsSolveds, action: :update, method: :patch, class: :form__btn__solved

@@ -1,0 +1,14 @@
+.content
+  .content__upper
+    .content__upper-icon
+      = icon('fas', 'user-alt', class: 'icon')
+    .content__upper__right
+      .content__upper__right-name
+        = link_to comment.user.name, user_path(@post.user), class: "content__upper__right-name"
+      .content__upper__right__status
+        .content__upper__right__status-solved
+        .content__upper__right__status-date
+          = comment.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+  .content__lower
+    %p.content__lower__text
+      = link_to comment.text, post_path(@post.id), class: "content__lower__text"

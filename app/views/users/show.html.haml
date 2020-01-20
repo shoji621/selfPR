@@ -1,0 +1,47 @@
+.contents
+  .content__title
+    = @user.name
+    さん
+  .content
+    - if current_user != @user
+      - if @user.followed_by?(current_user)
+        %p= link_to "フォロー済み", user_relationships_path(@user.id), method: :delete, class: :form__btn__solved
+      - else
+        %p= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: :form__btn__unsolved
+    %p.content__lower__favorite
+      = link_to follows_user_path(@user.id), class: "favorite" do
+        = @user.followings.count
+        フォロー
+      = link_to followers_user_path(@user.id), class: "favorite" do
+        = @user.followers.count
+        フォロワー
+
+
+  %ul.menu
+    %li
+      %a#posts.menu_item.active Posts
+    %li
+      %a#favorite_posts.menu_item Favorite_posts
+    %li
+      %a#favorite_commnets.menu_item Favorite_comments
+  %ul.container
+    %li.content.show
+      about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about about
+    %li.content
+      service service service service service service service service service service service service service service service service service service service service service service service service service service
+    %li.content
+      contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact contact
+
+  .content__title
+    = @user.name
+    さんの投稿一覧
+  - @posts.each do |post|
+    = render partial: "shared/post", locals: { post: post }
+  = paginate(@posts)
+
+  .content__title
+    = @user.name
+    さんのお気に入り投稿一覧
+  - @favorite_posts.each do |post|
+    = render partial: "shared/post", locals: { post: post }
+  = paginate(@posts)

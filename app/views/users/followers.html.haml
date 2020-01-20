@@ -1,0 +1,18 @@
+
+.contents
+  .content__title
+    フォロワー
+
+  - @users.each do |user|
+    .content__follow
+      .content__upper
+        .content__upper-icon
+          = icon('fas', 'user-alt', class: 'icon')
+        .content__upper__right-name
+          = link_to user.name, user_path(user.id), class: "content__upper__right-name"
+      .content__upper__right__status-unsolved
+      - if current_user != user
+        - if user.followed_by?(current_user)
+          = link_to "フォロー済み", user_relationships_path(user.id), method: :delete, class: :form__btn__solved
+        - else
+          = link_to "フォローする", user_relationships_path(user.id), method: :post, class: :form__btn__unsolved
