@@ -133,6 +133,7 @@
     margin-top: 10px;
     &__edit{
       display: block;
+      width: 52px;
       border-radius: 5px;
       color: #ffffff;
       background-color:#CC99FF;
@@ -142,12 +143,16 @@
     }
     &__delete{
       display: block;
+      width: 52px;
       border-radius: 5px;
       color: #ffffff;
       background-color:#CC99FF;
       padding: 0 10px;
       text-decoration: none;
       margin-left: 10px;
+      &__comment{
+        margin: 0 10px 0 auto;
+      }
     }
   }
   .postText{

@@ -1,9 +1,21 @@
 class CommentsController < ApplicationController
 
   def create
-    Comment.create(comment_params)
-    # flash[:success] = 'コメントの投稿に成功しました'
-    redirect_to post_path(params[:post_id])
+    @comment = Comment.new(comment_params)
+    @post = Post.find(params[:post_id])
+    if @comment.save
+    else
+      flash.now[:alert] = 'コメントを入力してください。'
+    end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @id_name = "#comment-#{@comment.id}"
+    if @comment.destroy
+    else
+      flash.now[:alert] = 'コメントを削除できませんでした。'
+    end
   end
 
   private

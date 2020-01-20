@@ -21,9 +21,9 @@
   .postAuthor
     = link_to @post.user.name, user_path(@post.user.id), class: "postAuthor--color"
   .postManage
-    - if user_signed_in? && current_user.id == @post.user_id && !@post.solved?
+    - if current_user.id == @post.user_id && !@post.solved?
       = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
-    - if user_signed_in? && current_user.id == @post.user_id && @comments.empty? && !@post.solved?
+    - if current_user.id == @post.user_id && @comments.empty? && !@post.solved?
       = link_to "削除", post_path(@post.id), method: :delete, data: { confirm: '削除しますか？' }, class: "postManage__delete"
   %p.postText
     = @post.text
@@ -35,7 +35,8 @@
     -unless @post.solved?
       = form_for [@post, @comment], html: {class: 'form'} do |f|
         = f.text_area :text, placeholder: "コメント本文", rows: "10"
-        = f.submit "コメントする", class: :form__btn, data: { confirm: 'コメントしますか？' }
+        = f.submit "コメントする", class: :form__btn
+        %input{name: "current_user_id", type: "hidden", value: current_user.id, class: 'current_user_id' }/
 
     .comments
       - if @comments.present?
