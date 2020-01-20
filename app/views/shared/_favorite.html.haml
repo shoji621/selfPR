@@ -1,0 +1,9 @@
+- if post.favorited_by?(current_user)
+  -# ログインしているユーザーがファボしたかどうかで分岐
+  = link_to post_favorites_path(post.id), method: :delete, class: "favorite", remote: true do
+    = icon('fas', 'heart')
+    = post.favorites.count
+- else
+  = link_to post_favorites_path(post.id), method: :post, class: "favorite", remote: true do
+    = icon('far', 'heart')
+    = post.favorites.count
