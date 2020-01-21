@@ -1,7 +1,10 @@
 class Post < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   include Paginate
   attr_accessor :keyword
-
+  belongs_to_active_hash :industry
+  belongs_to_active_hash :hopejob
+  belongs_to_active_hash :nowjob
   has_many :comments
   belongs_to :user
   has_many :favorites, foreign_key: 'Post_id', dependent: :destroy

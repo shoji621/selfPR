@@ -109,10 +109,13 @@
   }
 
   .postElement{
-    padding-top: 20px;
-    text-align: center;
     font-size: 20px;
     font-weight: bold;
+    width: 450px;
+    margin: 0 auto;
+    &__sub {
+      text-align: left;
+    }
   }
   .postDate{
     font-size: 15px;
@@ -208,13 +211,17 @@
   height: 100%;
   margin: 0 auto;
   padding-top: 30px;
-  &__element{
-    display: block;
-    height: 50px;
-    margin: 0 15px 15px 0;
-
-    float: left;
-  }
+  &__group {
+    span {
+      color: #999;
+    }
+    &__element{
+      display: block;
+      height: 50px;
+      margin: 0 15px 15px 0;
+      float: left;
+    }
+}
   &__text{
     display: block;
     width: 100%;

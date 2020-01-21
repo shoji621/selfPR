@@ -3,8 +3,14 @@
     新規自己PRの作成
 
   = form_for @post, html: {class: 'form'} do |f|
-    = f.text_field :industry, placeholder: :希望業界, class: :form__element
-    = f.text_field :hopejob, placeholder: :希望職種, class: :form__element
-    = f.text_field :nowjob, placeholder: :現職, class: :form__element
+    .form__group
+      %span 志望業界
+      = f.collection_select(:industry_id, Industry.all, :id, :name, {:prompt => "志望業界を選択してください"},{class: :form__group__element})
+    .form__group
+      %span 志望職種
+      = f.collection_select(:hopejob_id, Hopejob.all, :id, :name, {:prompt => "志望職種を選択してください"},{class: :form__group__element})
+    .form__group
+      %span 現職
+      = f.collection_select(:nowjob_id, Nowjob.all, :id, :name, {:prompt => "現職を選択してください"},{class: :form__group__element})
     = f.text_area :text, placeholder: :自己PR本文, class: :form__text
     = f.submit '投稿する', class: :form__btn, data: { confirm: '投稿完了しますか？' }
