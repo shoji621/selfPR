@@ -12,7 +12,9 @@ Rails.application.routes.draw do
   end
 
   namespace :posts do
-    resources :searches, only: :index
+    resources :searches, only: :index do
+      get :detail_search, on: :collection
+    end
   end
   namespace :posts do
     resources :solveds, only: :update

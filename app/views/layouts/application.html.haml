@@ -7,26 +7,7 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"}
-      
-    -# %link{:charset => "utf-8", :href => "application.scss", :rel => "stylesheet"}/
-    -# %script{:src => "/assets/javascripts/tab.js"}
-
-
-    -# :javascript
-    -#   WebFontConfig = {
-    -#     google: { families: [ 'Unica+One::latin' ] }
-    -#   };
-    -#   (function() {
-    -#     var wf = document.createElement('script');
-    -#     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-    -#       '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    -#     wf.type = 'text/javascript';
-    -#     wf.async = 'true';
-    -#     var s = document.getElementsByTagName('script')[0];
-    -#     s.parentNode.insertBefore(wf, s);
-    -#   })();
-
-    
+          
   %body
     %header.header
       .header__title
@@ -35,7 +16,7 @@
           = form_for(@post, url: posts_searches_path, method: :get, class: "search-form") do |f|
             = f.text_field :keyword, placeholder: "自己PRを検索する", class: "search-form__input"
             = icon('fas', 'search', class: 'search-icon')
-            -# = f.submit "検索", class: "search-form__btn"
+            = f.submit "詳細検索", class: "search-form__btn"
         
       .header__right
         - if user_signed_in?

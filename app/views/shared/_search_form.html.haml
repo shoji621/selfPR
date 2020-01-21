@@ -1,0 +1,49 @@
+.detail_search
+  = search_form_for(@q,url: detail_search_posts_searches_path) do |f|
+    .detail_search_form
+      .detail_search__title
+        %h3 詳細検索
+      .detail_search__sort
+        = f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc' } , { onchange: 'this.form.submit()'} )
+      .detail_search__group
+        .detail_search__group--label
+          = icon('fas', 'search', class: 'search-icon')
+          = f.label :industry_id_eq, '志望業界'
+          = f.collection_select(:industry_id_eq, Industry.all, :id, :name, :include_blank => '指定なし')
+
+      .detail_search__group
+        .detail_search__group--label
+          = icon('fas', 'search', class: 'search-icon')
+          = f.label :hopejob_id_eq, '志望職種'
+          = f.collection_select(:hopejob_id_eq, Hopejob.all, :id, :name, :include_blank => '指定なし')
+
+      .detail_search__group
+        .detail_search__group--label
+          = icon('fas', 'search', class: 'search-icon')
+          = f.label :nowjob_id_eq, '現職'
+          = f.collection_select(:nowjob_id_eq, Nowjob.all, :id, :name, :include_blank => '指定なし')
+
+      .detail_search__group
+        .detail_search__group--label
+          = icon('fas', 'search', class: 'search-icon')
+          %p キーワードを追加する
+        = f.search_field :text_cont, placeholder: "例）主体性"
+
+      .detail_search__group
+        .detail_search__group--label
+          = icon('fas', 'search', class: 'search-icon')
+          = f.label :solved_eq, '解決済みステータス'
+        .detail_search__group--radiobutton
+          = f.radio_button :solved_eq, '', {:checked => true}
+          = 'すべて'
+        .detail_search__group--radiobutton
+          = f.radio_button :solved_eq, 'false'
+          = '未解決'
+        .detail_search__group--radiobutton
+          = f.radio_button :solved_eq, 'true'
+          = '解決済み'
+
+      .detail_search__btns
+        .detail_search__btn--grey
+          = f.submit "リセット", type: :reset, id: :reset
+        = f.submit "完了"
