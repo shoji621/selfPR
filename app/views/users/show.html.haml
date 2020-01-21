@@ -13,6 +13,5 @@
         #favorite_posts.menu_item お気に入り投稿一覧
   .container
     .show
-      - @posts.each do |post|
-        = render partial: "shared/post", locals: { post: post }
+      = render partial: "shared/post", collection: @posts
       = paginate(@posts)
