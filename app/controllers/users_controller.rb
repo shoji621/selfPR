@@ -4,13 +4,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.paginate(params).recent
-    @favorite_posts = @user.favorite_posts.paginate(params).recent
+  end
 
-    # @favorite_commnets = @user.favorite_commnets # 追加
-    respond_to do |format|
-      format.html
-      format.json
-    end
+  def favorite
+    @user = User.find(params[:id])
+    @favorite_posts = @user.favorite_posts.paginate(params).recent
   end
 
   def edit
