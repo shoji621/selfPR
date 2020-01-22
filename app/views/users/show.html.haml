@@ -2,8 +2,8 @@
   .content__title
     = @user.name
     さん
-  .content__follow
-    = render partial: "shared/follow", locals: { user: @user }
+  .content__follow{id: "followbox-#{@user.id}"}
+    = render partial: "shared/followbox", locals: { user: @user }
 
   %ul.menu
     %li

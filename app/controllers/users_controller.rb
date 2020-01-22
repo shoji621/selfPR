@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def favorite
     @user = User.find(params[:id])
-    @favorite_posts = @user.favorite_posts.paginate(params).recent
+    @favorite_posts = @user.favorite_posts.includes(:user).paginate(params).recent
   end
 
   def edit
