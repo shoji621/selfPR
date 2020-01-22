@@ -1,7 +1,8 @@
 .contents
   .content__title
     = render 'shared/search_form'
-    検索結果
+    .search-result
+      検索結果
   .container
     = render partial: "shared/post", collection: @posts
     = paginate(@posts)

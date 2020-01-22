@@ -6,7 +6,7 @@ class Posts::SearchesController < ApplicationController
     @posts = Post.search(params[:post][:keyword]).includes(:user).paginate(params).recent
   end
 
-  def detail_search
+  def detail
     @posts = @q.result.includes(:user).paginate(params).recent
   end
   

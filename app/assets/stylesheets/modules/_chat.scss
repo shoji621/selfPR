@@ -10,12 +10,6 @@
   margin: $margin;
 }
 
-// .transition {
-//   @include transition-property(all);
-//   @include transition-duration(0.2s);
-//   @include transition-timing-function(linear);
-// }
-
 .contents{
   margin: 30px auto 0;
   background-color: #fff;
@@ -177,14 +171,14 @@
       font-weight: normal;
       font-size: 20px;
     }
-    input,textarea {
+    input,textarea,select {
       width: 100%;
       @include boxBase(5px 0 15px,10px);
       border: 1px solid ;
       border-radius: 5px;
+      box-sizing: border-box;
     }
     input[type="submit"] {
-      // @extend .transition;
       background-color: #CC99FF;
       border-radius: 20px;
       color: #fff;
@@ -221,7 +215,7 @@
       margin: 0 15px 15px 0;
       float: left;
     }
-}
+  }
   &__text{
     display: block;
     width: 100%;

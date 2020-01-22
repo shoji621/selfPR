@@ -1,0 +1,77 @@
+//mixin
+@mixin boxBase($margin: 30px auto, $padding: 10px) {
+  margin: $margin;
+  padding: $padding;
+}
+
+
+.detail_search {
+  &__title {
+    padding-bottom: 30px;
+  }
+  &__body {
+    display: flex;
+    &__left {
+      width: 50%;
+      &__group {
+        font-size: 16px;
+        &--label {
+          display: flex;
+          color: #999;
+        }
+        &--box {
+          display: block;
+          height: 50px;
+          margin: 0 15px 15px 0;
+          border: 1px solid ;
+        }
+        &--text {
+          box-sizing: border-box;
+        }
+        #q_text_cont {
+          @include boxBase(5px 0 15px,15px);
+        }
+        &--radiobtn {
+          display: flex;
+          margin-top: 10px;
+          float: left;
+          width: 30%;
+            input[type="radio"] {
+              width: 10%;
+              margin-right: 10px;
+            }
+        }
+        &--radiobtn:first-child {
+          margin-top: 10px;
+        }
+      }
+    }
+    &__right {
+      width: 50%;
+      // margin: 0 auto;
+      input[type="reset"] {
+        // @extend .transition;
+        background-color: #999;
+        border-radius: 20px;
+        color: #fff;
+        border: 0;
+        font-size: 18px;
+        width: 30%;
+        margin: 0 auto;
+        &:hover {
+          background-color: lighten(#999, 10%);
+        }
+      }
+      &__btn {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
+
+.search-result {
+  @include boxBase(30px auto 0 auto);
+  &--none {
+    font-size: 15px;
+  }
+  }

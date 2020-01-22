@@ -1,0 +1,15 @@
+.contents
+  .content__title
+    = render 'shared/search_form'
+    .search-result
+      詳細検索結果
+      %br
+      - if @posts[0] == nil
+        .search-result--none
+          該当する投稿が見つかりません。検索条件を変えて、再度お試しください。
+      - else
+        #{@posts.count}件ヒットしました
+
+  .container
+    = render partial: "shared/post", collection: @posts
+    = paginate(@posts)
