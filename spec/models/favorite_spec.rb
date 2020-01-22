@@ -1,6 +1,7 @@
 require 'rails_helper'
 describe Favorite do
   describe '#create' do
+
     # 1. user_id, post_idが存在すれば登録できること
     it "is valid with a user_id, post_id" do
       user = create(:user)
