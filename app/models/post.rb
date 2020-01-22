@@ -10,9 +10,11 @@ class Post < ApplicationRecord
   has_many :favorites, foreign_key: 'Post_id', dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
 
-
-  validates :solved, inclusion: {in: [true, false]}
-  validates :text, presence: true
+  validates :industry_id            , presence: true, numericality: { only_integer: true }
+  validates :hopejob_id             , presence: true, numericality: { only_integer: true }
+  validates :nowjob_id              , presence: true, numericality: { only_integer: true }
+  validates :text                   , presence: true
+  validates :solved                 , inclusion: {in: [true, false]}
 
   scope :recent, -> { order("created_at DESC") }
 
