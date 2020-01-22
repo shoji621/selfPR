@@ -39,12 +39,9 @@
         %input{name: "current_user_id", type: "hidden", value: current_user.id, class: 'current_user_id' }/
 
       .comments
-        - if @comments.present?
-          %h4 【コメント一覧】
-          - @comments.each do |comment|
-            = render partial: "shared/comment", locals: { comment: comment }
-        - else
-          %h4 コメントはまだありません
+        %h4 【コメント一覧】
+        - @comments.each do |comment|
+          = render partial: "shared/comment", locals: { comment: comment }
 
       - if @post.solved?
         .content__upper__right__status-solved
