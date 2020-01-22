@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'bullet'
 end
 
 group :development do
@@ -55,7 +56,8 @@ gem 'haml-rails'
 gem 'pry-rails'
 gem 'font-awesome-sass'
 gem 'devise'
-gem 'jquery-rails'
 gem 'kaminari'
 gem 'enum_help'
 gem 'jquery-turbolinks'
+gem 'ransack'
+gem 'active_hash'

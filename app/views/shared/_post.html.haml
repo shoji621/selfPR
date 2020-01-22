@@ -7,17 +7,17 @@
         = link_to post.user.name, user_path(post.user), class: "content__upper__right-name"
       .content__upper__right__element
         .content__upper__right__element-industry
-          - if post.industry?
-            希望業界:
-            = post.industry
+          - if post.industry_id?
+            志望業界:
+            = post.industry.name
         .content__upper__right__element-hopejob
-          - if post.hopejob?
-            希望職種:
-            = post.hopejob
+          - if post.hopejob_id?
+            志望職種:
+            = post.hopejob.name
         .content__upper__right__element-nowjob
-          - if post.nowjob?
+          - if post.nowjob_id?
             現職:
-            = post.nowjob
+            = post.nowjob.name
       .content__upper__right__status
         - if post.solved?
           .content__upper__right__status-solved

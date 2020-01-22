@@ -11,8 +11,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
-    redirect_to root_path
+    post = Post.create(post_params)
+    if post.save
+      redirect_to root_path
+    else
+      flash.now[:alert] = post.errors.full_messages
+      redirect_to new_post_path
+    end
   end
 
   def show
@@ -25,8 +30,13 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to post_path(post.id)
+    if post.update(post_params)
+      redirect_to post_path(post.id)
+    else
+      flash.now[:alert] = post.errors.full_messages
+      redirect_to edit_post_path
+    end
+
   end
 
   def destroy
@@ -37,7 +47,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:industry,:hopejob ,:nowjob, :text, :solved).merge(user_id: current_user.id)
+    params.require(:post).permit(:industry_id,:hopejob_id ,:nowjob_id, :text, :solved).merge(user_id: current_user.id)
   end
 
   def set_post

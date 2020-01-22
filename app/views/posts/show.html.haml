@@ -1,60 +1,60 @@
 .contents
-  .postElement
-    - if @post.industry?
-      希望業界:
-      = @post.industry
-    - if @post.hopejob?
-      　希望職種:
-      = @post.hopejob
-    - if @post.nowjob?
-      　現職:
-      = @post.nowjob
-  .content__upper__right__status
-    - if @post.solved?
-      .content__upper__right__status-solved
-        解決済
-    - else
-      .content__upper__right__status-unsolved
-        受付中
-    .content__upper__right__status-date
-      = @post.created_at.strftime("%Y/%m/%d(%a) %H:%M")
-  .postAuthor
-    = link_to @post.user.name, user_path(@post.user.id), class: "postAuthor--color"
-  .postManage
-    - if current_user.id == @post.user_id && !@post.solved?
-      = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
-    - if current_user.id == @post.user_id && @comments.empty? && !@post.solved?
-      = link_to "削除", post_path(@post.id), method: :delete, data: { confirm: '削除しますか？' }, class: "postManage__delete"
-  %p.postText
-    = @post.text
-
-  .postFavorite
-    %p.content__lower__favorite{id: "favorite-#{@post.id}"}
-      = render partial: "shared/favorite", locals: { post: @post }
   .container
+    .postElement
+      .postElement__sub
+        志望業界:　
+        = @post.industry.name
+      .postElement__sub
+        志望職種:　
+        = @post.hopejob.name
+      .postElement__sub
+        現職:　　　
+        = @post.nowjob.name
+    .content__upper__right__status
+      - if @post.solved?
+        .content__upper__right__status-solved
+          解決済
+      - else
+        .content__upper__right__status-unsolved
+          受付中
+      .content__upper__right__status-date
+        = @post.created_at.strftime("%Y/%m/%d(%a) %H:%M")
+    .postAuthor
+      = link_to @post.user.name, user_path(@post.user.id), class: "postAuthor--color"
+    .postManage
+      - if current_user.id == @post.user_id && !@post.solved?
+        = link_to "編集", edit_post_path(@post.id), class: "postManage__edit"
+      - if current_user.id == @post.user_id && @comments.empty? && !@post.solved?
+        = link_to "削除", post_path(@post.id), method: :delete, data: { confirm: '削除しますか？' }, class: "postManage__delete"
+    %p.postText
+      = @post.text
+
+    .postFavorite
+      %p.content__lower__favorite{id: "favorite-#{@post.id}"}
+        = render partial: "shared/favorite", locals: { post: @post }
     -unless @post.solved?
       = form_for [@post, @comment], html: {class: 'form'} do |f|
         = f.text_area :text, placeholder: "コメント本文", rows: "10"
         = f.submit "コメントする", class: :form__btn
         %input{name: "current_user_id", type: "hidden", value: current_user.id, class: 'current_user_id' }/
 
-    .comments
-      - if @comments.present?
-        %h4 【コメント一覧】
-        - @comments.each do |comment|
-          = render partial: "shared/comment", locals: { comment: comment }
-      - else
-        %h4 コメントはまだありません
+      .comments
+        - if @comments.present?
+          %h4 【コメント一覧】
+          - @comments.each do |comment|
+            = render partial: "shared/comment", locals: { comment: comment }
+        - else
+          %h4 コメントはまだありません
 
-    - if @post.solved?
-      .content__upper__right__status-solved
-        解決済
-        %br
-        .content__upper__right__status-date
-          = @post.updated_at.strftime("%Y/%m/%d(%a) %H:%M")
-    - else
-      .content__upper__right__status-unsolved
-        受付中
-        %br
-        - if current_user.id == @post.user_id
-          = link_to "解決済にする", posts_solved_path(@post), controller: :PostsSolveds, action: :update, method: :patch, class: :form__btn__solved
+      - if @post.solved?
+        .content__upper__right__status-solved
+          解決済
+          %br
+          .content__upper__right__status-date
+            = @post.updated_at.strftime("%Y/%m/%d(%a) %H:%M")
+      - else
+        .content__upper__right__status-unsolved
+          受付中
+          %br
+          - if current_user.id == @post.user_id
+            = link_to "解決済にする", posts_solved_path(@post), controller: :PostsSolveds, action: :update, method: :patch, class: :form__btn__solved

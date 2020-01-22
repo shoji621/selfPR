@@ -45,12 +45,12 @@ Things you may want to cover:
 ## postsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|industry|string||
-|hopejob|string||
-|nowjob|string||
+|industry|integer|null: false|
+|hopejob|integer|null: false|
+|nowjob|integer|null: false|
 |text|text|null: false|
 |solved_status|boolean| { solved: true, unsolved: false }|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
 ### Association
 - has_many :comments
 - belongs_to :user

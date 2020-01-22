@@ -1,6 +1,8 @@
 .contents
   .content__title
-    #{params[:post][:keyword]} の検索結果
-  - @posts.each do |post|
-    = render partial: "shared/post", locals: { post: post }
-  = paginate(@posts)
+    = render 'shared/search_form'
+    .search-result
+      検索結果
+  .container
+    = render partial: "shared/post", collection: @posts
+    = paginate(@posts)

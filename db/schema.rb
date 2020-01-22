@@ -33,14 +33,14 @@ ActiveRecord::Schema.define(version: 20200102083901) do
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "industry"
-    t.string   "hopejob"
-    t.string   "nowjob"
-    t.text     "text",       limit: 16777215,                 null: false
+    t.integer  "industry_id",                                  null: false
+    t.integer  "hopejob_id",                                   null: false
+    t.integer  "nowjob_id",                                    null: false
+    t.text     "text",        limit: 16777215,                 null: false
     t.integer  "user_id"
-    t.boolean  "solved",                      default: false, null: false
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.boolean  "solved",                       default: false, null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.index ["text"], name: "index_posts_on_text", length: { text: 200 }, using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
