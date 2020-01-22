@@ -1,12 +1,5 @@
-%p.content__lower__favorite
-  = link_to follows_user_path(@user.id), class: "favorite" do
-    = @user.followings.count
-    フォロー
-  = link_to followers_user_path(@user.id), class: "favorite" do
-    = @user.followers.count
-    フォロワー
-- if current_user != @user
-  - if @user.followed_by?(current_user)
-    %p= link_to "フォロー済み", user_relationships_path(@user.id), method: :delete, class: :form__btn__solved
+- if current_user != user
+  - if user.followed_by?(current_user)
+    = link_to "フォロー済み", user_relationships_path(user.id), method: :delete, class: :form__btn__solved, remote: true
   - else
-    %p= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: :form__btn__unsolved
+    = link_to "フォローする", user_relationships_path(user.id), method: :post, class: :form__btn__unsolved, remote: true

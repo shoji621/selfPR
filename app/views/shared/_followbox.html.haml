@@ -1,0 +1,8 @@
+%p.content__lower__favorite
+  = link_to follows_user_path(@user.id), class: "favorite" do
+    = @user.followings.count
+    フォロー
+  = link_to followers_user_path(@user.id), class: "favorite" do
+    = @user.followers.count
+    フォロワー
+= render partial: "shared/follow", locals: { user: @user }
