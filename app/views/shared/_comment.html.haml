@@ -4,7 +4,7 @@
       = icon('fas', 'user-alt', class: 'icon')
     .content__upper__right
       .content__upper__right-name
-        = link_to comment.user.name, user_path(@post.user), class: "content__upper__right-name"
+        = link_to comment.user.name, user_path(comment.user), class: "content__upper__right-name"
       .content__upper__right__status
         .content__upper__right__status-solved
         .content__upper__right__status-date

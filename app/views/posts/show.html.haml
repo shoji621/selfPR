@@ -43,15 +43,15 @@
       - @comments.each do |comment|
         = render partial: "shared/comment", locals: { comment: comment }
 
-      - if @post.solved?
-        .content__upper__right__status-solved
-          解決済
-          %br
-          .content__upper__right__status-date
-            = @post.updated_at.strftime("%Y/%m/%d(%a) %H:%M")
-      - else
-        .content__upper__right__status-unsolved
-          受付中
-          %br
-          - if current_user.id == @post.user_id
-            = link_to "解決済にする", posts_solved_path(@post), controller: :PostsSolveds, action: :update, method: :patch, class: :form__btn__solved
+    - if @post.solved?
+      .content__upper__right__status-solved
+        解決済
+        %br
+        .content__upper__right__status-date
+          = @post.updated_at.strftime("%Y/%m/%d(%a) %H:%M")
+    - else
+      .content__upper__right__status-unsolved
+        受付中
+        %br
+        - if current_user.id == @post.user_id
+          = link_to "解決済にする", posts_solved_path(@post), controller: :PostsSolveds, action: :update, method: :patch, class: :form__btn__solved
