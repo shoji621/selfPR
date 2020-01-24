@@ -92,7 +92,7 @@ deviseを用いて、ユーザー登録機能の実装を行った。
 各ユーザーの「フォロー」「フォロワー」の一覧を確認したい時は、左上にある「フォロー」「フォロワー」の文字をクリックして下さい。
 ```
 
-<img src="https://user-images.githubusercontent.com/57927432/73044789-a152a100-3eae-11ea-8613-1c75d24ce9df.png" width="400px"> <img src="https://user-images.githubusercontent.com/57927432/73045017-892f5180-3eaf-11ea-972d-df05ba8e918e.png" width="400px">
+<img src="https://user-images.githubusercontent.com/57927432/73048179-94887a00-3ebb-11ea-8875-c76d08a53034.png" width="400px"> <img src="https://user-images.githubusercontent.com/57927432/73045017-892f5180-3eaf-11ea-972d-df05ba8e918e.png" width="400px">
 
 #### ・ 詳細検索
 
