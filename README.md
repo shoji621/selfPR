@@ -39,7 +39,7 @@ $ rails s
 deviseを用いて、ユーザー登録機能の実装を行った。
 ログインしていないユーザーはログインページに遷移される。
 ```
-<img src="https://user-images.githubusercontent.com/57927432/72968978-fa1b2e80-3e07-11ea-843b-8db46ad1f722.png" width="500px">
+<img src="https://user-images.githubusercontent.com/57927432/72968978-fa1b2e80-3e07-11ea-843b-8db46ad1f722.png" width="400px">
 
 #### ・ 自己PR投稿
 
@@ -53,7 +53,7 @@ deviseを用いて、ユーザー登録機能の実装を行った。
 を全て記入し、「投稿する」ボタンを押すと投稿ができます。
 ```
 
-<img src="https://user-images.githubusercontent.com/57927432/72970299-b118a980-3e0a-11ea-8606-4c5cc97a11df.png" width="500px">
+<img src="https://user-images.githubusercontent.com/57927432/72970299-b118a980-3e0a-11ea-8606-4c5cc97a11df.png" width="400px">
 
 #### ・ コメント投稿
 
@@ -61,7 +61,7 @@ deviseを用いて、ユーザー登録機能の実装を行った。
 自己PRが「受付中」ステータスのものに対して、コメントを投稿することができます。このコメント欄に自己PRの添削内容を記入して下さい。
 ```
 
-<img src="https://user-images.githubusercontent.com/57927432/72970997-20db6400-3e0c-11ea-8e54-7b465e078cb8.png" width="500px">
+<img src="https://user-images.githubusercontent.com/57927432/72970997-20db6400-3e0c-11ea-8e54-7b465e078cb8.png" width="400px">
 
 #### ・ 解決済みステータス
 ```
@@ -69,7 +69,7 @@ deviseを用いて、ユーザー登録機能の実装を行った。
 右下の「解決済みにする」ボタンを押すとステータスが「受付中」から「解決済」に変化し、コメントができなくなります。
 ```
 
-<img src="https://user-images.githubusercontent.com/57927432/72971306-cbec1d80-3e0c-11ea-93ca-33715069ecee.png" width="500px"> <img src="https://user-images.githubusercontent.com/57927432/72971363-e3c3a180-3e0c-11ea-8f30-3beaf21bf2b5.png" width="500px">
+<img src="https://user-images.githubusercontent.com/57927432/72971306-cbec1d80-3e0c-11ea-93ca-33715069ecee.png" width="400px"> <img src="https://user-images.githubusercontent.com/57927432/72971363-e3c3a180-3e0c-11ea-8f30-3beaf21bf2b5.png" width="400px">
 
 #### ・ いいね
 
@@ -82,7 +82,7 @@ deviseを用いて、ユーザー登録機能の実装を行った。
 すると確認できます。
 ```
 
-<img src="https://user-images.githubusercontent.com/57927432/73044751-5afd4200-3eae-11ea-999f-1312419e546e.png" width="500px">
+<img src="https://user-images.githubusercontent.com/57927432/73044751-5afd4200-3eae-11ea-999f-1312419e546e.png" width="400px">
 
 #### ・ フォロー
 
@@ -92,7 +92,7 @@ deviseを用いて、ユーザー登録機能の実装を行った。
 各ユーザーの「フォロー」「フォロワー」の一覧を確認したい時は、左上にある「フォロー」「フォロワー」の文字をクリックして下さい。
 ```
 
-<img src="https://user-images.githubusercontent.com/57927432/73044789-a152a100-3eae-11ea-8613-1c75d24ce9df.png" width="500px"> <img src="https://user-images.githubusercontent.com/57927432/73045017-892f5180-3eaf-11ea-972d-df05ba8e918e.png" width="500px">
+<img src="https://user-images.githubusercontent.com/57927432/73044789-a152a100-3eae-11ea-8613-1c75d24ce9df.png" width="400px"> <img src="https://user-images.githubusercontent.com/57927432/73045017-892f5180-3eaf-11ea-972d-df05ba8e918e.png" width="400px">
 
 #### ・ 詳細検索
 
@@ -101,7 +101,7 @@ deviseを用いて、ユーザー登録機能の実装を行った。
 ここでは、各項目で条件を絞って自己PRを検索することができます。
 ```
 
-<img src="https://user-images.githubusercontent.com/57927432/73045046-a9f7a700-3eaf-11ea-8ebd-12aeb0733c01.png" width="500px">
+<img src="https://user-images.githubusercontent.com/57927432/73045046-a9f7a700-3eaf-11ea-8ebd-12aeb0733c01.png" width="400px">
 
 ## 工夫して実装した機能
 #### ・ 解決済みステータスの切り替え
