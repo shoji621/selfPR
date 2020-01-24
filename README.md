@@ -108,6 +108,8 @@ deviseを用いて、ユーザー登録機能の実装を行った。
 解決済みステータスの更新を`posts/solveds_controller.rb`内のupdateアクションで定義しました。このように実装することで、自己PR自体の更新（`posts_controller.rb`内のupdateアクション）と区別して呼び出すことが可能となりました。
 
 ```controllers/posts/solveds_controller.rb
+controllers/posts/solveds_controller.rb
+
 class Posts::SolvedsController < ApplicationController
   def update
     @post = Post.find(params[:id])
@@ -118,14 +120,18 @@ end
 ```
 
 ```views/posts/show.html.haml
+views/posts/show.html.haml
+
 - if current_user.id == @post.user_id
   = link_to "解決済にする", posts_solved_path(@post), controller: :PostsSolveds, action: :update, method: :patch, class: :form__btn__solved
 ```
 
 #### ・ コメント削除の非同期通信
-非同期通信で投稿されたコメントそれぞれに動的idを付与することにより、各投稿に削除ボタンを実装しました。
+非同期通信で投稿されたコメントそれぞれに動的idを付与することにより、各コメントに削除ボタンを実装しました。
 
 ```controllers/comments_controller.rb
+controllers/comments_controller.rb
+
 class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
@@ -138,11 +144,15 @@ class CommentsController < ApplicationController
 ```
 
 ```views/shared/_comment.html.haml
+views/shared/_comment.html.haml
+
 .content{id: "comment-#{comment.id}"}
 -# (省略)
 ```
 
 ```views/comments/destroy.js.haml
+views/comments/destroy.js.haml
+
 $('#{@id_name}').remove();
 ```
 
