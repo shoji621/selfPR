@@ -247,6 +247,17 @@
         background-color: lighten(#3f81d3, 10%);
       }
     }
+    &__useredit{
+      @include boxBase(5px 0 15px,10px);
+      display: inline-block;
+      background-color: #CC99FF;
+      border-radius: 20px;
+      color: #fff;
+      text-align: center;
+      &:hover {
+        background-color: lighten(#CC99FF, 10%);
+      }
+    }
 
   }
 }

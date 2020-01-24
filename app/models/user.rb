@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   validates :name                       , presence: true, uniqueness: true
   validates :email                      , presence: true, uniqueness: true
-  validates :password                   , presence: true, length: { minimum: 8 }, confirmation: true
+  validates :password                   , presence: true, length: { minimum: 8 }, confirmation: true, on: :create
 
   scope :recent, -> { order("created_at DESC") }
 
