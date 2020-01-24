@@ -3,3 +3,5 @@
     = link_to "フォロー済み", user_relationships_path(user.id), method: :delete, class: :form__btn__solved, remote: true
   - else
     = link_to "フォローする", user_relationships_path(user.id), method: :post, class: :form__btn__unsolved, remote: true
+- else
+  = link_to "ユーザー編集", edit_user_path(current_user), class: :form__btn__useredit, remote: false
