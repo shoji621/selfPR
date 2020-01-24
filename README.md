@@ -25,7 +25,7 @@ URL：https://selfpr.herokuapp.com/
 
 ```
 $ git clone https://github.com/shoji621/selfPR.git
-$ cd idea_space
+$ cd selfPR
 $ bundle install
 $ rails db:create
 $ rails db:migrate
