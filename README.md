@@ -207,8 +207,8 @@ $('#{@id_name}').remove();
 |Column|Type|Options|
 |------|----|-------|
 |text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|post_id|integer|null: false, foreign_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|post_id|reference|null: false, foreign_key: true|
 #### Association
 - belongs_to :user
 - belongs_to :post
