@@ -157,7 +157,7 @@ $('#{@id_name}').remove();
 ```
 
 ## DB設計図
-<img src="https://user-images.githubusercontent.com/57927432/73047526-6f930780-3eb9-11ea-8173-c41bf928eafe.png" width="1200px">
+<img src="https://user-images.githubusercontent.com/57927432/73236018-3a95f600-41d4-11ea-8c93-456ca530bb8f.png" width="1200px">
 
 ### usersテーブル
 |Column|Type|Options|
