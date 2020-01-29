@@ -13,11 +13,12 @@
       .header__title
         = link_to "Self PR", root_path, class: "header__title--text"
         - if user_signed_in?
-          = form_for(@post, url: posts_searches_path, method: :get, class: "search-form") do |f|
-            = f.text_field :keyword, placeholder: "自己PRを検索する", class: "search-form__input"
-            = icon('fas', 'search', class: 'search-icon')
-            = f.submit "詳細検索", class: "search-form__btn"
-        
+          .search
+            = form_for(@post, url: posts_searches_path, method: :get, class: "search-form") do |f|
+              = f.text_field :keyword, placeholder: "自己PRを検索する", class: "search-form__input"
+              = icon('fas', 'search', class: 'search-icon')
+              = f.submit "詳細検索", class: "search-form__btn"
+
       .header__right
         - if user_signed_in?
           = link_to current_user.name, user_path(current_user), class: "header__right--btn"
