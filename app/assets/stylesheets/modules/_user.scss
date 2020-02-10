@@ -81,6 +81,13 @@
     border: none;
     border-radius: 2px;
   }
+  .actions {
+    position: relative;
+    .guest {
+      position: absolute;
+      right: 0;
+    }
+  }
 
   input[type='submit'] {
     float: left;
