@@ -19,3 +19,14 @@
               = f.password_field :password, autocomplete: "off"
           .actions
             = f.submit "Log in", class: 'btn'
+            
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |g|
+        .field
+          .field-input
+            = g.hidden_field :email, autofocus: true, value: User.find(1).email
+          .field
+            .field-input
+              = g.hidden_field :password, autocomplete: "off", value: "12345678"
+          .actions
+            = g.submit "ゲストユーザーで Log in", class: 'btn guest'
+            
