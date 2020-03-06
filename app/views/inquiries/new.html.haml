@@ -1,0 +1,6 @@
+.contents
+  .content__title
+    お問い合わせフォーム
+  = form_for @inquiry, html: {class: 'form'} do |f|
+    = f.text_area :message, placeholder: :お問い合わせ内容, class: :form__text
+    = f.submit '投稿する', class: :form__btn, data: { confirm: '完了しますか？' }

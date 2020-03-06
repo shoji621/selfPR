@@ -94,6 +94,12 @@
       padding-top: 30px;
       text-align: center;
     }
+    &--inquiry{
+      float: right;
+      &:hover{
+        opacity: 0.5;
+      }
+    }
   }
   .content__follow{
     padding: 10px;

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :favorites
   has_many :favorite_posts, through: :favorites, source: :post
+  has_many :inquiries
 
   # ====================自分がフォローしているユーザーとの関連 =================================
   #フォローする側のUserから見て、フォローされる側のUserを(中間テーブルを介して)集める。なので親はfollowing_id(フォローする側)

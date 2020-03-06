@@ -4,3 +4,4 @@
   .container
     = render partial: "shared/post", collection: @posts
     = paginate(@posts)
+    = link_to "お問い合わせフォーム", new_inquiry_path, class: "content--inquiry"
