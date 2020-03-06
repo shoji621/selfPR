@@ -24,4 +24,6 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
 
+  resources :inquiries, only: [:new, :create]
+
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200102083901) do
+ActiveRecord::Schema.define(version: 20200306080943) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "text",       limit: 16777215, null: false
@@ -30,6 +30,14 @@ ActiveRecord::Schema.define(version: 20200102083901) do
     t.index ["post_id"], name: "index_favorites_on_post_id", using: :btree
     t.index ["user_id", "post_id"], name: "index_favorites_on_user_id_and_post_id", unique: true, using: :btree
     t.index ["user_id"], name: "index_favorites_on_user_id", using: :btree
+  end
+
+  create_table "inquiries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "message",    null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_inquiries_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -69,5 +77,6 @@ ActiveRecord::Schema.define(version: 20200102083901) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
+  add_foreign_key "inquiries", "users"
   add_foreign_key "posts", "users"
 end
