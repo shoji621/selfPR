@@ -60,4 +60,16 @@ Rails.application.configure do
     Bullet.rails_logger = true
     Bullet.add_footer = true
   end
+
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'smtp.gmail.com',
+    user_name:            ENV['SELFPR_GMAIL_ADDRESS'],
+    password:             ENV['SELFPR_GMAIL_PASSWORD'],
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
 end

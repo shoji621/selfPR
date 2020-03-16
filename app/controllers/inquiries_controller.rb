@@ -8,6 +8,7 @@ class InquiriesController < ApplicationController
   def create
     inquiry = Inquiry.create(inquiry_params)
     if inquiry.save
+      InquiryMailer.send_mail(inquiry).deliver_now
       redirect_to root_path
     else
       flash.now[:alert] = inquiry.errors.full_messages

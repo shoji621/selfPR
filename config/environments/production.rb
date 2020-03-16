@@ -82,16 +82,14 @@ Rails.application.configure do
   config.assets.initialize_on_precompile=false
 
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default_url_options = { host: 'selfpr.herokuapp.com' }
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings = {
-    user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
-    domain: "heroku.com",
-    address: "smtp.sendgrid.net",
-    port: 587,
-    authentication: :plain,
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'smtp.gmail.com',
+    user_name:            ENV['SELFPR_GMAIL_ADDRESS'],
+    password:             ENV['SELFPR_GMAIL_PASSWORD'],
+    authentication:       'login',
     enable_starttls_auto: true
-    }
-  config.action_mailer.perform_caching = false
+  }
 end

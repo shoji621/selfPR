@@ -16,6 +16,7 @@ public/assets/*
 
 # Ignore Byebug command history file.
 /config/master.key
+/config/secrets_gmail.yml
 
 .DS_Store
 .byebug_history
