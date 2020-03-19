@@ -111,10 +111,7 @@ deviseを用いて、ユーザー登録機能の実装を行った。
 railsのAction Mailer機能を用いて実装しました。
 ```
 
-<img width="400px" alt="スクリーンショット 2020-03-19 14.03.28.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/533673/2e42bb72-7850-4228-e586-0ac5fd233f98.png">
-
-
-<img width="400px" alt="スクリーンショット 2020-03-19 14.03.47.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/533673/65015c15-d158-41de-e1fe-c9847d4879d8.png">
+<img width="400px" alt="スクリーンショット 2020-03-19 14.03.28.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/533673/2e42bb72-7850-4228-e586-0ac5fd233f98.png"> <img width="400px" alt="スクリーンショット 2020-03-19 14.03.47.png" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/533673/65015c15-d158-41de-e1fe-c9847d4879d8.png">
 
 <img width="400px" alt="スクリーンショット 2020-03-16 17.22.22.jpg" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/533673/9350d156-0d2e-c9ac-d29e-bd8b08c30ce9.jpeg">
 
