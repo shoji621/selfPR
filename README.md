@@ -7,7 +7,9 @@
 
 URL：https://selfpr.herokuapp.com/
 
-使用言語：Ruby on Rails、jQuery
+使用言語：Ruby on Rails, jQuery
+
+使用技術：Heroku, Docker
 
 主な機能：ユーザー登録、自己PR投稿、コメント、いいね、フォロー、詳細検索、問い合わせ機能（メール送信）
 
@@ -23,6 +25,7 @@ URL：https://selfpr.herokuapp.com/
 
 ## Usage
 
+ローカル環境の場合
 ```
 $ git clone https://github.com/shoji621/selfPR.git
 $ cd selfPR
@@ -30,6 +33,16 @@ $ bundle install
 $ rails db:create
 $ rails db:migrate
 $ rails s
+👉http://localhost:3000/
+```
+
+Docker仮想化環境の場合(dockerインストール済みの前提です)
+```
+$ git clone https://github.com/shoji621/selfPR.git
+$ cd selfPR
+$ docker-compose build 
+$ docker-compose up -d
+$ docker-compose run web rails db:create db:migrate db:seed
 👉http://localhost:3000/
 ```
 

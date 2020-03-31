@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 public/assets/*
+/vendor/bundle/*
+/docker/mysql/*
 
 # Ignore Byebug command history file.
 /config/master.key
