@@ -1,0 +1,1 @@
+User.first_or_create(id: 1, name: 'ゲスト', email: 'guest@com', password: '12345678', password_confirmation: '12345678')
